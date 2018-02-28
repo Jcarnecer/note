@@ -68,15 +68,17 @@ class Cards extends CI_Controller {
 
 		} else {
 			
-			echo json_encode($this->card_model->get_all($this->session->user->company_id));
+			echo json_encode($this->card_model->get_all($this->session->user->company_id, ACTIVE));
 		}
 	}
 
 
 	# Fetch All Cards
 	public function get_all() {
+
+		header("Access-Control-Allow-Origin: *");
 		$this->card_model->order_by('updated_at', 'desc');
-		echo json_encode($this->card_model->get_all($this->session->user->company_id));
+		echo json_encode($this->card_model->get_all($this->session->user->company_id, ACTIVE));
 	}
 
 
