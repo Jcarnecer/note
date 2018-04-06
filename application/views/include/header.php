@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
         <link rel="shortcut icon" href="payakapps.com/assets/images/favicon.png" type="image/x-icon">
                
-        <title>Bulletin Board</title>
+        <title>PayakApps</title>
 
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+27px">
