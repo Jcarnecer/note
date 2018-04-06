@@ -25,6 +25,11 @@
         <div id="sidebar" style="overflow-y: auto;">
 
             <!-- sidebar menu start-->
+            <div id="nav-icon-back">
+                <a href="<?= ENVIRONMENT === 'development' ? 'http://localhost/main' : 'http://payakapps.com' ?>">
+                    <i style="color:#fff;height: 25px;position: relative;width:30px;" class="fa fa-arrow-left"></i>
+                </a>
+            </div>
             <div id="nav-icon-close" class="custom-toggle">
                 <span></span>
                 <span></span>
@@ -33,22 +38,22 @@
             <ul class="sidebar-menu">		
 
                 <li class="">
-                    <a class="font-weight-bold text-warning" href="#tutorialModal" data-toggle="modal">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <span>Get Started with Bulletin Board</span>
-                    </a>
-                </li>
-
-                <li class="">
                     <a class="task-create" href="#searchTaskModal" data-toggle="modal">
                         <i class="fa fa-search" aria-hidden="true"></i>
                             <span>Search</span>
                     </a>
                 </li>
+
+                <li class="">
+                    <a class="font-weight-bold text-warning" href="#tutorialModal" data-toggle="modal">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                            <span>Guide with Bulletin</span>
+                    </a>
+                </li>
                 
                 <li class="">
                     <a class="" href="<?= LOGOUT_URL ?>">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
                         <span>Logout</span>
                     </a>
                 </li>
@@ -60,21 +65,27 @@
         <div class="main-content h-100">
 
             <div class="topbar">
-                <nav class="navbar navbar-custom clearfix">
+                <nav class="navbar navbar-custom navbar-expand-lg">
                     <div id="nav-icon-open" class="custom-toggle hidden-toggle">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
-                    <a class="navbar-brand" href="<?= base_url('tasks'); ?>">Bulletin Board</a>
-
-                    <span class="ml-auto">
-                        <a href="#searchTaskModal" data-toggle="modal"><i class="fa fa-search"></i> Search</a>
-                        <a href="#" data-toggle="popover" data-placement="bottom"  data-content="<?= $email ?>" data-trigger="hover">
-                            <!-- <i class="fa fa-user-circle"></i> <?= $user_name ?> -->
-                            <img class="img-avatar" src="<?= $avatar_url ?>"> <?= $user_name ?>
-                        </a>
-                    </span>
+                     <a class="navbar-brand" href="<?= base_url(); ?>">Bulletin Board</a>
+                    
+                    <ul class="navbar-nav flex-row ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                <img class="img-avatar mr-2" src="<?= $avatar_url ?>"><?= $user_name ?>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="<?= ENVIRONMENT === "development" ? 'http://localhost/main/users/profile' : 'http://payakapps.com/users/profile' ?>">My Profile</a>
+                                <a class="dropdown-item" href="<?= ENVIRONMENT === "development" ? 'http://localhost/main/users/profile/change-password' : 'http://payakapps.com/users/profile/change-password' ?>">My Password</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= LOGOUT_URL ?>">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
                 </nav>
             </div>
 
